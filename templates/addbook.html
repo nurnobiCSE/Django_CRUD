@@ -1,0 +1,21 @@
+{% extends 'master.html' %}
+
+{% block body_Content %}
+
+<div class="container">
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label class="form-group" for="title">Title:</label>
+    <input class="form-control" type="text" name="title"  required>
+    <label class="form-group" for="price">Price:</label>
+    <input class="form-control" type="number" name="price" required >
+    <label class="form-group" for="author">Writer:</label>
+    <input class="form-control" type="text" name="author" required>
+    <br>
+    <input class="btn btn-primary" type="submit" value="save">
+    <a class="btn btn-primary" href="{% url 'readd' %}">sava and add another</a>
+</form>
+</div>
+    {% endblock %}

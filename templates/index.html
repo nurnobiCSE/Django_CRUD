@@ -1,0 +1,46 @@
+{% extends 'master.html' %}
+
+{% block body_Content%}
+
+<div class="container">
+    <h2>BOOK LIST </h2>
+    <hr>
+    <a class="btn btn-success" href="{% url 'addbook' %}">ADD BOOK</a> <br>
+    
+    <br>
+     <div id="tab">
+        <table id="tblStocks" class="table table-dark">
+            <thead>
+              <tr>
+                  <th>Book Name</th>
+                  <th>Price</th>
+                  <th>Writer</th>
+                  <th>Action(Book List)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for book in books %}
+              <tr>
+                  <td>{{ book.title }}</td>
+                  <td>{{ book.price }}</td>
+                  <td>{{ book.author }}</td>
+                  <td>
+                      <a class="btn btn-info" href="edit/{{ book.id }}">Edit</a>
+                      <a class="btn btn-danger"onclick="myFunction()" href="delete/{{ book.id }}">Delete</a>
+                  </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+           
+       </table>
+
+     </div>
+     <span>
+     <a class="btn btn-primary" onclick="exportData()">Download book sheet</a> 
+    
+    <a class="btn btn-warning" id="btPrint" onclick="createPDF()">get print</a>
+     
+      
+</div>
+
+{% endblock %}
